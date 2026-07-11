@@ -1,0 +1,37 @@
+<svg viewBox="0 0 400 240" class="project-card__diagram" aria-hidden="true" focusable="false">
+
+  <!-- Outer Frame -->
+  <rect x="20" y="20" width="360" height="200" rx="12"
+        fill="none"
+        stroke="currentColor"
+        stroke-opacity="0.25"/>
+
+  <!-- Linux Server -->
+  <rect x="35" y="80" width="110" height="80" rx="10" class="pd-node"/>
+  <text x="90" y="110" text-anchor="middle" font-size="13" fill="currentColor">🐧 Linux</text>
+  <text x="90" y="128" text-anchor="middle" font-size="11" fill="currentColor">Server</text>
+
+  <!-- User Management -->
+  <rect x="250" y="35" width="105" height="34" rx="6" class="pd-node"/>
+  <text x="302" y="56" text-anchor="middle" font-size="10" fill="currentColor">Users</text>
+
+  <!-- Service Monitoring -->
+  <rect x="250" y="82" width="105" height="34" rx="6" class="pd-node"/>
+  <text x="302" y="103" text-anchor="middle" font-size="10" fill="currentColor">Services</text>
+
+  <!-- Log Monitoring -->
+  <rect x="250" y="129" width="105" height="34" rx="6" class="pd-node"/>
+  <text x="302" y="150" text-anchor="middle" font-size="10" fill="currentColor">Logs</text>
+
+  <!-- Backup -->
+  <rect x="250" y="176" width="105" height="34" rx="6" class="pd-node"/>
+  <text x="302" y="197" text-anchor="middle" font-size="10" fill="currentColor">Backups</text>
+
+  <!-- Connections -->
+  <line x1="145" y1="95" x2="250" y2="52" class="pd-line"/>
+  <line x1="145" y1="112" x2="250" y2="99" class="pd-line"/>
+  <line x1="145" y1="128" x2="250" y2="146" class="pd-line"/>
+  <line x1="145" y1="145" x2="250" y2="193" class="pd-line"/>
+
+</svg>
+
