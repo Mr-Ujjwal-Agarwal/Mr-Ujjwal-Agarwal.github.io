@@ -1624,7 +1624,7 @@ function initResume() {
   const closers = $all('[data-close-resume]', modal);
   const iframe = $('#resumeFrame', modal) || $('iframe', modal);
   const printBtn = $('#printResumeBtn', modal);
-  const resumePath = (iframe && iframe.getAttribute('src')) || 'assets/resume/Ujjwal_Agarwal_Resume.pdf';
+  const resumePath = (iframe && iframe.getAttribute('src')) || 'assets/resume/UJJWAL-AGARWAL-RESUME.pdf';
 
   let lastFocused = null;
   let checked = false;
