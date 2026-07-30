@@ -1810,7 +1810,6 @@ document.addEventListener('DOMContentLoaded', () => {
   safeInit('hero', initHero);
   safeInit('journey', initJourney);
   safeInit('skills', initSkills);
-  safeInit('projects', initProjects);
   safeInit('certificates', initCertificates);
   safeInit('resume', initResume);
   safeInit('contact', initContact);
