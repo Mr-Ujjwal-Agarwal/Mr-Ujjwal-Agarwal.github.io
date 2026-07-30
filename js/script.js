@@ -1411,173 +1411,186 @@ bindEvents();
 startLoop();
 }
 
+/* ==========================================================
+                PROJECT SLIDESHOW ENGINE
+========================================================== */
 
+const projectSlides = {
 
+    opsboard: {
 
+        imageId: "opsboard-preview",
+        counterId: "opsboard-counter",
+        moduleId: "opsboard-module",
 
+        images: [
+            "assets/images/projects/opsboard/1.webp",
+            "assets/images/projects/opsboard/2.webp",
+            "assets/images/projects/opsboard/3.webp",
+            "assets/images/projects/opsboard/4.webp",
+            "assets/images/projects/opsboard/5.webp",
+            "assets/images/projects/opsboard/6.webp",
+            "assets/images/projects/opsboard/7.webp",
+            "assets/images/projects/opsboard/8.webp"
+        ],
 
+        labels: [
+            "Architecture",
+            "Dashboard",
+            "GitHub Actions",
+            "Terraform",
+            "Amazon EKS",
+            "Helm",
+            "Argo CD",
+            "Monitoring"
+        ]
+    },
 
+    enterprise: {
 
+        imageId: "enterprise-preview",
+        counterId: "enterprise-counter",
+        moduleId: "enterprise-module",
 
+        images: [
+            "assets/images/projects/enterprise/1.webp",
+            "assets/images/projects/enterprise/2.webp",
+            "assets/images/projects/enterprise/3.webp",
+            "assets/images/projects/enterprise/4.webp",
+            "assets/images/projects/enterprise/5.webp",
+            "assets/images/projects/enterprise/6.webp",
+            "assets/images/projects/enterprise/7.webp",
+            "assets/images/projects/enterprise/8.webp"
+        ],
 
+        labels: [
+            "Login",
+            "Dashboard",
+            "Employees",
+            "AWS",
+            "Terraform",
+            "Docker",
+            "Jenkins",
+            "Deployment"
+        ]
+    },
 
-/* ==========================================================================
-   8. PROJECTS — filterable grid with tilt on hover
-   ========================================================================== */
-function initProjects() {
-  const grid = $('#projectsGrid');
-  const filters = $all('.filter-btn');
-  if (!grid || !filters.length) return;
+    linuxops: {
 
-  const cards = $all('.project-card', grid);
+        imageId: "linuxops-preview",
+        counterId: "linuxops-counter",
+        moduleId: "linuxops-module",
 
-  filters.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filters.forEach((b) => {
-        b.classList.remove('is-active');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      btn.classList.add('is-active');
-      btn.setAttribute('aria-pressed', 'true');
+        images: [
+            "assets/images/projects/linuxops/1.webp",
+            "assets/images/projects/linuxops/2.webp",
+            "assets/images/projects/linuxops/3.webp",
+            "assets/images/projects/linuxops/4.webp",
+            "assets/images/projects/linuxops/5.webp",
+            "assets/images/projects/linuxops/6.webp",
+            "assets/images/projects/linuxops/7.webp",
+            "assets/images/projects/linuxops/8.webp"
+        ],
 
-      const filter = btn.dataset.filter;
-      cards.forEach((card) => {
-        const cats = (card.dataset.cat || '').split(' ');
-        const show = filter === 'all' || cats.includes(filter);
-        card.classList.toggle('is-hidden', !show);
-      });
-    });
-  });
+        labels: [
+            "Dashboard",
+            "File Manager",
+            "Backup",
+            "Users",
+            "Packages",
+            "Network",
+            "Security",
+            "Health"
+        ]
+    }
 
-  if (isTouchDevice || prefersReducedMotion) return;
+};
 
-  cards.forEach((card) => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const px = (e.clientX - rect.left) / rect.width - 0.5;
-      const py = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `translateY(-6px) perspective(900px) rotateX(${(-py * 3).toFixed(2)}deg) rotateY(${(px * 3).toFixed(2)}deg)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
-}
+/* ==========================================================
+                REUSABLE ENGINE
+========================================================== */
 
-/* ==========================================
-   LinuxOps Premium Slideshow
-========================================== */
+function createProjectSlideshow(config){
 
-const screenshots = [
+    const image = document.getElementById(config.imageId);
+    const counter = document.getElementById(config.counterId);
+    const module = document.getElementById(config.moduleId);
 
-    { name:"System Dashboard", file:"dashboard.png" },
-    { name:"User Management", file:"users.png" },
-    { name:"File Management", file:"files.png" },
-    { name:"Backup Management", file:"backup.png" },
-    { name:"Log Management", file:"logs.png" },
-    { name:"Network Management", file:"network.png" },
-    { name:"Package Management", file:"packages.png" },
-    { name:"Service Management", file:"services.png" },
-    { name:"Process Management", file:"process.png" },
-    { name:"Disk Management", file:"disk.png" },
-    { name:"Live Health Monitor", file:"health.png" }
+    if(!image || !counter || !module) return;
 
-];
+    const card = image.closest(".project-card");
+    const dots = card.querySelectorAll(".preview-dot");
 
-let currentShot = 0;
+    let index = 0;
 
-const preview = document.getElementById("linuxops-preview");
-const moduleName = document.getElementById("module-name");
-const counter = document.getElementById("terminal-counter");
-const dots = document.querySelectorAll(".slide-dot");
-const terminal = document.querySelector(".terminal-window");
+    function update(){
 
-let slideInterval;
+        image.classList.add("preview-image-exit");
 
-/* ---------- Preload Images ---------- */
+        setTimeout(()=>{
 
-screenshots.forEach(screen => {
+            image.src = config.images[index];
 
-    const img = new Image();
+            module.textContent = config.labels[index];
 
-    img.src = `assets/projects/linuxops/${screen.file}`;
+            counter.textContent =
+                `${index+1} / ${config.images.length}`;
 
-});
+            dots.forEach((dot,i)=>{
 
-/* ---------- Update UI ---------- */
+                dot.classList.toggle(
+                    "active",
+                    i===index
+                );
 
-function updateSlide(){
+            });
 
-    preview.style.opacity = 0;
+            image.classList.remove("preview-image-exit");
 
-    preview.style.transform = "scale(1)";
+            image.classList.add("preview-image-active");
 
-    setTimeout(()=>{
-
-        preview.src = `assets/projects/linuxops/${screenshots[currentShot].file}`;
-
-        moduleName.textContent = screenshots[currentShot].name;
-
-        counter.textContent =
-            `${currentShot+1} / ${screenshots.length}`;
-
-        dots.forEach(dot=>dot.classList.remove("active"));
-
-        dots[currentShot].classList.add("active");
-
-        preview.style.opacity = 1;
-
-        preview.style.transform = "scale(1.04)";
-
-    },350);
-
-}
-
-/* ---------- Next ---------- */
-
-function nextSlide(){
-
-    currentShot++;
-
-    if(currentShot>=screenshots.length){
-
-        currentShot=0;
+        },180);
 
     }
 
-    updateSlide();
+    let timer = setInterval(next,3000);
+
+    function next(){
+
+        index++;
+
+        if(index>=config.images.length){
+
+            index=0;
+
+        }
+
+        update();
+
+    }
+
+    card.addEventListener("mouseenter",()=>{
+
+        clearInterval(timer);
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        timer=setInterval(next,3000);
+
+    });
+
+    update();
 
 }
 
-/* ---------- Start ---------- */
+/* ==========================================================
+                INITIALIZATION
+========================================================== */
 
-function startSlideshow(){
+Object.values(projectSlides).forEach(createProjectSlideshow);
 
-    slideInterval = setInterval(nextSlide,3000);
-
-}
-
-/* ---------- Stop ---------- */
-
-function stopSlideshow(){
-
-    clearInterval(slideInterval);
-
-}
-
-/* ---------- Initialize ---------- */
-
-if(preview){
-
-    updateSlide();
-
-    startSlideshow();
-
-    terminal.addEventListener("mouseenter",stopSlideshow);
-
-    terminal.addEventListener("mouseleave",startSlideshow);
-
-}
 
 
 /* ==========================================================================
