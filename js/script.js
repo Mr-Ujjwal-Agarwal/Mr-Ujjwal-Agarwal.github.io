@@ -1424,14 +1424,14 @@ const projectSlides = {
         moduleId: "opsboard-module",
 
         images: [
-            "assets/images/projects/OpsBoard/architecture.png",
-            "assets/images/projects/OpsBoard/01-dashboard.png",
-            "assets/images/projects/OpsBoard/03-ecr-repositories-created.png",
-           "assets/images/projects/OpsBoard/05-k8s-pods.png",
-            "assets/images/projects/OpsBoard/06-github-actions.png",
-            "assets/images/projects/OpsBoard/07-argocd.png",
-            "assets/images/projects/OpsBoard/09-grafana-monitoring.png",
-           "assets/images/projects/OpsBoard/10-prometheus-targets.png"
+            "assets/projects/OpsBoard/architecture.png",
+            "assets/projects/OpsBoard/01-dashboard.png",
+            "assets/projects/OpsBoard/03-ecr-repositories-created.png",
+           "assets/projects/OpsBoard/05-k8s-pods.png",
+            "assets/projects/OpsBoard/06-github-actions.png",
+            "assets/projects/OpsBoard/07-argocd.png",
+            "assets/projects/OpsBoard/09-grafana-monitoring.png",
+           "assets/projects/OpsBoard/10-prometheus-targets.png"
         ],
 
         labels: [
@@ -1453,14 +1453,14 @@ const projectSlides = {
         moduleId: "enterprise-module",
 
         images: [
-            "assets/images/projects/EMS/Phase-1.png",
-            "assets/images/projects/EMS/Phase-3.png",
-            "assets/images/projects/EMS/Phase-4.png",
-           "assets/images/projects/EMS/ems-dashboard.png",
-            "assets/images/projects/EMS/public-lb.png",
-            "assets/images/projects/EMS/04-cloudwatch-dashboard.png",
-           "assets/images/projects/EMS/aws-ecr.png",
-            "assets/images/projects/EMS/jenkins-blueocean-pipeline.png",
+            "assets/projects/EMS/Phase-1.png",
+            "assets/projects/EMS/Phase-3.png",
+            "assets/projects/EMS/Phase-4.png",
+           "assets/projects/EMS/ems-dashboard.png",
+            "assets/projects/EMS/public-lb.png",
+            "assets/projects/EMS/04-cloudwatch-dashboard.png",
+           "assets/projects/EMS/aws-ecr.png",
+            "assets/projects/EMS/jenkins-blueocean-pipeline.png",
         ],
 
         labels: [
@@ -1482,14 +1482,14 @@ const projectSlides = {
         moduleId: "linuxops-module",
 
         images: [
-            "assets/images/projects/linuxops/dashboard.png",
-            "assets/images/projects/linuxops/files.png",
-            "assets/images/projects/linuxops/backup.png",
-            "assets/images/projects/linuxops/disk.png",
-            "assets/images/projects/linuxops/health.png",
-            "assets/images/projects/linuxops/logs.png",
-            "assets/images/projects/linuxops/process.png",
-            "assets/images/projects/linuxops/network.png"
+            "assets/projects/linuxops/dashboard.png",
+            "assets/projects/linuxops/files.png",
+            "assets/projects/linuxops/backup.png",
+            "assets/projects/linuxops/disk.png",
+            "assets/projects/linuxops/health.png",
+            "assets/projects/linuxops/logs.png",
+            "assets/projects/linuxops/process.png",
+            "assets/projects/linuxops/network.png"
         ],
 
         labels: [
