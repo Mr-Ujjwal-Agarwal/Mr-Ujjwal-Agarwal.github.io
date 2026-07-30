@@ -1424,24 +1424,24 @@ const projectSlides = {
         moduleId: "opsboard-module",
 
         images: [
-            "assets/images/projects/opsboard/1.webp",
-            "assets/images/projects/opsboard/2.webp",
-            "assets/images/projects/opsboard/3.webp",
-            "assets/images/projects/opsboard/4.webp",
-            "assets/images/projects/opsboard/5.webp",
-            "assets/images/projects/opsboard/6.webp",
-            "assets/images/projects/opsboard/7.webp",
-            "assets/images/projects/opsboard/8.webp"
+            "assets/images/projects/OpsBoard/architecture.png",
+            "assets/images/projects/OpsBoard/01-dashboard.png",
+            "assets/images/projects/OpsBoard/03-ecr-repositories-created.png",
+           "assets/images/projects/OpsBoard/05-k8s-pods.png",
+            "assets/images/projects/OpsBoard/06-github-actions.png",
+            "assets/images/projects/OpsBoard/07-argocd.png",
+            "assets/images/projects/OpsBoard/09-grafana-monitoring.png",
+           "assets/images/projects/OpsBoard/10-prometheus-targets.png"
         ],
 
         labels: [
             "Architecture",
             "Dashboard",
-            "GitHub Actions",
-            "Terraform",
+            "Amazon ECR",
             "Amazon EKS",
-            "Helm",
+            "GitHub Actions",
             "Argo CD",
+            "Grafana",
             "Monitoring"
         ]
     },
@@ -1453,25 +1453,25 @@ const projectSlides = {
         moduleId: "enterprise-module",
 
         images: [
-            "assets/images/projects/enterprise/1.webp",
-            "assets/images/projects/enterprise/2.webp",
-            "assets/images/projects/enterprise/3.webp",
-            "assets/images/projects/enterprise/4.webp",
-            "assets/images/projects/enterprise/5.webp",
-            "assets/images/projects/enterprise/6.webp",
-            "assets/images/projects/enterprise/7.webp",
-            "assets/images/projects/enterprise/8.webp"
+            "assets/images/projects/EMS/Phase-1.png",
+            "assets/images/projects/EMS/Phase-3.png",
+            "assets/images/projects/EMS/Phase-4.png",
+           "assets/images/projects/EMS/ems-dashboard.png",
+            "assets/images/projects/EMS/public-lb.png",
+            "assets/images/projects/EMS/04-cloudwatch-dashboard.png",
+           "assets/images/projects/EMS/aws-ecr.png",
+            "assets/images/projects/EMS/jenkins-blueocean-pipeline.png",
         ],
 
         labels: [
-            "Login",
-            "Dashboard",
-            "Employees",
-            "AWS",
-            "Terraform",
-            "Docker",
-            "Jenkins",
-            "Deployment"
+            "AWS Infrastructure",
+            "CI-CD Integeration",
+            "IaC",
+            "EMS Dashboard",
+            "Amazon Load Balancer",
+            "Monitoring",
+            "AWS ECR",
+            "Jenkins Pipeline"
         ]
     },
 
@@ -1482,25 +1482,25 @@ const projectSlides = {
         moduleId: "linuxops-module",
 
         images: [
-            "assets/images/projects/linuxops/1.webp",
-            "assets/images/projects/linuxops/2.webp",
-            "assets/images/projects/linuxops/3.webp",
-            "assets/images/projects/linuxops/4.webp",
-            "assets/images/projects/linuxops/5.webp",
-            "assets/images/projects/linuxops/6.webp",
-            "assets/images/projects/linuxops/7.webp",
-            "assets/images/projects/linuxops/8.webp"
+            "assets/images/projects/linuxops/dashboard.png",
+            "assets/images/projects/linuxops/files.png",
+            "assets/images/projects/linuxops/backup.png",
+            "assets/images/projects/linuxops/disk.png",
+            "assets/images/projects/linuxops/health.png",
+            "assets/images/projects/linuxops/logs.png",
+            "assets/images/projects/linuxops/process.png",
+            "assets/images/projects/linuxops/network.png"
         ],
 
         labels: [
             "Dashboard",
-            "File Manager",
-            "Backup",
-            "Users",
-            "Packages",
-            "Network",
-            "Security",
-            "Health"
+            "File Management",
+            "Backup ",
+            "Disk Management",
+            "Health Monitoring",
+            "Logs Monitoring",
+            "Process Management",
+            "Networks"
         ]
     }
 
