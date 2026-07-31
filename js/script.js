@@ -1657,10 +1657,20 @@ function initResume() {
     if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
   };
 
-  openers.forEach((btn) => btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    open();
-  }));
+  openers.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Mobile
+        if (window.innerWidth <= 768) {
+            window.open(resumePath, "_blank");
+            return;
+        }
+
+        // Desktop
+        open();
+    });
+});
   closers.forEach((el) => el.addEventListener('click', close));
 
   document.addEventListener('keydown', (e) => {
